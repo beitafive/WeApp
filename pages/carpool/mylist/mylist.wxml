@@ -1,0 +1,24 @@
+<!-- 引入公共底部  -->
+<import src="../../../components/nav/nav.wxml" />
+<import src="../../../components/loading/loading.wxml" />
+<scroll-view bindscrolltolower="loadMore" scroll-y style="height:{{height}};" class="my-list">
+  <view class="my-item" wx:for="{{list}}" wx:key="{{index}}">
+    <navigator url="/pages/carpool/detail/detail?id={{item.id}}">
+      {{item.startPlace}}-->{{item.endPlace}}
+    </navigator>
+    <navigator url="/pages/carpool/detail/detail?id={{item.id}}">
+      <text>拼车</text>
+      <text>{{item.date}}</text>
+      <text>浏览：{{item.browseNumber}}</text>
+    </navigator>
+    <view class="flexdis contorll">
+      <button open-type="share" style="background:#fff;border-color:#fff;padding:0;">分享</button>
+      <navigator url="/pages/carpool/issue/issue?id={{item.id}}" style="flex:1">编辑</navigator>
+      <view data-id="{{item.id}}" bindtap="deleteItem">删除</view>
+    </view>
+  </view>
+  <template is="L" wx:if="{{loading}}"></template>
+  <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+  <view style="width:100%;height:110rpx;background:#fff;"></view>
+</scroll-view>
+<template is="N"></template>

@@ -1,0 +1,43 @@
+<view class="top-info">
+  <view class="flexdis place">
+    <text class="types" style="background:{{color}}">{{types}}</text>
+    {{start}}<icon class="iconfont icon-weibiaoti40"></icon>{{end}}
+  </view>
+  <view class="flexdis infos">
+    <text>发布时间：{{createDate}}</text> | <text>浏览：{{num}}</text>
+    <button bindtap="goedit" wx:if="{{isMe==1}}" class="flexdis"><text>编辑</text><icon class="iconfont icon-bianji"></icon></button>
+    <button open-type='share' class="flexdis"><text>分享</text><icon class="iconfont icon-iconfontfenxiang2"></icon></button>
+  </view>
+</view>
+<view class="detail">
+  <view><text>出发时间：</text>{{startTime}}</view>
+  <view><text>途\t径\t地：</text>{{path}}</view>
+  <view style="padding-bottom:30rpx;border-bottom:1px solid #e2e2e2"><text>{{unit}}：</text>{{count}}{{unit}}</view>
+  <view class="phone flexdis">
+    <text>手\t机\t号：</text>{{phone}}
+    <button bindtap="callUser" disabled='{{timelose}}' style="color:{{timelose?'#ccc':'#f90'}};border-color:{{timelose?'#ccc':'#f90'}}">拨 打</button>
+  </view>
+</view>
+<view class="more">
+  <view class="title">更多描述</view>
+  <view>{{desc}}</view>
+</view>
+
+<!-- <navigator url="/pages/carpool/issue/issue" class="issue">
+  <icon class="iconfont icon-bianji"></icon>
+  发布
+</navigator>  -->
+<!-- <view class="contorll" wx:if="{{!timelose}}">
+  <navigator url="/pages/carpool/index/index" class="l-item">
+    <icon class="iconfont icon-shouye"></icon>
+    首页
+  </navigator> 
+  <view class="l-item" bindtap="goRouter">
+    <icon class="iconfont icon-bianji"></icon>
+    编辑
+  </view>
+  <view class="r-item" bindtap="callUser">
+    <icon class="iconfont icon-dianhuazhengzaibohao"></icon>
+    拨打电话
+  </view>
+</view> -->

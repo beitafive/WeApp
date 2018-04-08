@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/carpool/index/index",
+    "pages/carpool/mine/mine",
+    "pages/carpool/issue/issue",
+    "pages/carpool/mylist/mylist",
+    "pages/carpool/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,28 @@
+@import '../../../components/nav/nav.wxss';
+
+.mine{
+  overflow:hidden;
+  background:#f5f5f5;
+}
+.mine-list{
+  padding:40rpx 20rpx;
+  align-items:center;
+  background:#fff;
+  margin-bottom:20rpx;
+}
+.mine-list image{
+  width:80rpx;
+  height:80rpx;
+  margin-right:30rpx;
+}
+.mine-list text:nth-of-type(1){
+  color: #333;
+  font-size: 36rpx;
+}
+.mine-list text:nth-of-type(2){
+  flex:1;
+  text-align: right;
+  margin-right: 10rpx;
+  color: #999;
+  font-size: 28rpx;
+}

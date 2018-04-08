@@ -1,0 +1,92 @@
+<!--index.wxml-->
+<!-- 引入公共底部  -->
+<import src="../../../components/nav/nav.wxml" />
+<!-- 引入加载中动画  -->
+<import src="../../../components/loading/loading.wxml" />
+<!-- 引入tips  -->
+<import src="../../../components/tips/tips.wxml" />
+<template is='T' wx:if="{{isTipShow}}"></template>
+
+<scroll-view bindscrolltolower="loadMore" scroll-y="{{!isTipShow}}" style="height:{{height}};" bindscroll="viewScroll" scroll-top="{{scrollTop}}" wx:if="{{allShow}}">
+  <view class="gotop" bindtap="goTop" wx:if="{{showTop}}">
+    <image src="../../../images/carpool/top.png"></image>
+    顶部
+  </view>
+  <view class="i-top">
+    <icon class="iconfont icon-icon"></icon> 免责声明：本平台不提供任何形式担保
+    <text bindtap="showCover">查看详细拼车说明。</text>
+  </view>
+  <!-- 轮播  -->
+  <view class="container">
+    <swiper indicator-dots autoplay interval="3500"  class="swiper">
+      <block wx:for="{{bannerList}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item.imageUrl}}" width="100%" class="swiper-img" bindtap="swiperTo" data-item="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- search-type  -->
+  <view class="search">
+    <view class="cover">
+      <view wx:for="{{searchType}}" wx:key="index" class="cover-item" bindtap="tapType" data-value="{{item.value}}">
+        <icon style="background:{{item.color}}" class="iconfont {{item.className}}">
+        </icon>
+        <view style="font-weight:{{item.value===type?'700':'100'}}">
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- search-input  -->
+  <view class="s-input">
+    <view class="s-flex">
+      <input bindinput="getGo" placeholder="出发地搜索" maxlength="10" value="{{startPlace}}"/>
+      <icon class="iconfont icon-jiaohuan" bindtap="exchange"></icon>
+      <input bindinput="getEnd" placeholder="目的地搜索" maxlength="10" value="{{endPlace}}"/>
+    </view>
+    <icon class="iconfont icon-sousuo sousuo" bindtap="search"></icon>
+  </view>
+  <!-- search-site   -->
+  <view class="s-site">
+    <icon class="iconfont icon-chengshijianshe" style="margin-right:10rpx;"></icon>
+    <text>热门地点</text>
+    <button style="color:{{timeType=='createTime'?'#999':'#45b5ff'}}" bindtap="changeTime">按{{timeType=='createTime'?'出发':'发布'}}时间排序</button>
+  </view>
+  <!-- search-place  -->
+  <view class="place">
+    <view class="place-item" wx:for="{{placeList}}" wx:key="index" data-name="{{item.name}}" bindtap='changePlace' style="background:{{item.name==nowPlace?'#ccc':'#f5f5f5'}}">
+      {{item.name}}
+    </view>
+  </view>
+  <!-- list  -->
+  <view class="list" wx:for="{{tableData}}" wx:key="{{index}}">
+    <view class="border-top"></view>
+    <navigator url="/pages/carpool/detail/detail?id={{item.id}}">
+      <view class="list-data">
+        <text class="types" style="background:{{item.color}}">{{item.typeName}}</text>
+        <text class="list-pl" style="margin-left:106rpx;">{{item.startPlace}}</text><icon class="iconfont icon-weibiaoti40"></icon><text class="list-pl">{{item.endPlace}}</text>
+        <text class="passBy" wx:if="{{item.passPlace}}">途径：{{item.passPlace}}</text>
+      </view>
+      <view class="times flexdis">
+        <text style="color:{{item.startDate=='今天'?'#f00':'#666'}}">{{item.startDate}}</text>
+        <text>{{item.startHour}}出发</text>
+      </view>
+      <view class="remark" wx:if="{{item.description}}">
+        <text>备注：{{item.description}}</text>
+      </view>
+    </navigator>
+    
+    <view class="desc">
+      <text>{{item.quantity}}</text>
+      <text>{{item.createTime}}</text>
+      <button bindtap="callUser" data-phone="{{item.phone}}" disabled='{{item.isGo}}' style="color:{{item.isGo?'#ccc':'#f90'}};border-color:{{item.isGo?'#ccc':'#f90'}}">拨 打</button>
+    </view>
+    <image src="../../../images/carpool/pc-ycf.png" class="isGo" wx:if="{{item.isGo}}"></image>
+  </view>
+  <template is="L" wx:if="{{loading}}"></template>
+  <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+  <view style="width:100%;height:110rpx;background:#f5f5f5;"></view>
+</scroll-view>
+
+<template is="N" wx:if="{{allShow}}"></template>

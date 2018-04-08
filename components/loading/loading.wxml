@@ -1,0 +1,17 @@
+
+<template name="L">
+  <view class="box">
+    <view class="loader">
+      <view class="loading">
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+        <icon></icon>
+      </view>
+    </view>
+  </view> 
+</template>

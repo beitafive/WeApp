@@ -1,0 +1,77 @@
+.box{
+    width: 100%;
+    padding:10rpx 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.loader{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    transform:scale(0.5)
+}
+
+@-webkit-keyframes loading{
+    50%{
+        transform: scale(0.4);
+        opacity: 0.3;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.loading{
+    position: relative;
+}
+.loading icon{
+    display: block;
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 100%;
+    position: absolute;
+    background: #333;
+}
+.loading icon:nth-child(1){
+    top: 50rpx;
+    left: 0;
+    -webkit-animation: loading 1s ease 0s infinite;
+}
+.loading icon:nth-child(2){
+    top: 34rpx;
+    left: 34rpx;
+    -webkit-animation: loading 1s ease 0.12s infinite;
+}
+.loading icon:nth-child(3){
+    top: 0;
+    left: 50rpx;
+    -webkit-animation: loading 1s ease 0.24s infinite;
+}
+.loading icon:nth-child(4){
+    top: -34rpx;
+    left: 34rpx;
+    -webkit-animation: loading 1s ease 0.36s infinite;
+}
+.loading icon:nth-child(5){
+    top: -50rpx;
+    left: 0;
+    -webkit-animation: loading 1s ease 0.48s infinite;
+}
+.loading icon:nth-child(6){
+    top: -34rpx;
+    left: -34rpx;
+    -webkit-animation: loading 1s ease 0.6s infinite;
+}
+.loading icon:nth-child(7){
+    top: 0;
+    left: -50rpx;
+    -webkit-animation: loading 1s ease 0.72s infinite;
+}
+.loading icon:nth-child(8){
+    top: 34rpx;
+    left: -34rpx;
+    -webkit-animation: loading 1s ease 0.84s infinite;   
+}
