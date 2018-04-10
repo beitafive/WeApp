@@ -36,7 +36,6 @@ function timeLose(itemTime){
 //判断 日期 
 function getWeek(itemTime){
   itemTime = itemTime.replace(/-/g,'/')
-  console.log(itemTime)
   var obj = new Object();
   var mydate = new Date(itemTime);
   var timeStr = (mydate.getHours() >= 10 ? mydate.getHours() : '0' + mydate.getHours()) + '：' + (mydate.getMinutes() >= 10 ? mydate.getMinutes() : '0' + mydate.getMinutes());
