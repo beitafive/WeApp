@@ -1,5 +1,12 @@
 {
   "pages":[
+    "pages/home/home",
+    "pages/photography/publish/publish",
+    "pages/photography/photo/photo",
+    "pages/photography/myinfo/myinfo",
+    "pages/photography/myphoto/myphoto",
+    "pages/photography/fanlist/fanlist",
+    "pages/photography/main/main",
     "pages/carpool/index/index",
     "pages/carpool/mine/mine",
     "pages/carpool/issue/issue",

@@ -1,0 +1,128 @@
+.main{
+  padding:10rpx 20rpx 0;
+  border-top:1px solid #eee;
+  border-bottom:20rpx solid #eee;
+}
+.user-info{
+  padding:14rpx 0;
+}
+.user-info image{
+  width:80rpx;height:80rpx;
+  border-radius:50%;
+}
+.user-info view{
+  margin-left:20rpx;
+  justify-content: space-between;
+  flex-direction: column 
+}
+.user-info view text:nth-of-type(1){
+  color:#F6873D;
+  font-size:32rpx;
+  font-weight:600;
+}
+.user-info view text:nth-of-type(2){
+  color:#9D9D9D;
+  font-size:24rpx;
+}
+.info-title{
+  color:#5A5A5A;
+  font-size:32rpx;
+}
+.info-img{
+  padding:16rpx 0 10rpx;
+}
+.info-img image{
+  margin:4rpx;
+}
+
+.info-nav{
+  width:100%;
+  height:100rpx;
+  background:#F9F9F9;
+  color:#a1a1a1;
+  font-size:32rpx;
+  position:fixed;
+  left:0;bottom:0;
+  align-items:center;
+}
+.info-nav view{
+  flex:1;
+  height:50rpx;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+.info-nav view icon{
+  margin-right:10rpx;
+}
+
+.scroll-nav{
+  height:80rpx;
+  padding:0 30rpx;
+  align-items:center;
+  font-size:32rpx;
+  border-bottom:1px solid #eee;
+}
+.scroll-nav view{
+  position:relative;
+}
+.scroll-nav view text{
+  position: absolute; 
+  display: block;
+  height:6rpx;
+  width:56rpx;
+  background:#F6873D;
+  left:20rpx;
+  border-radius:2rpx;
+  bottom:-18rpx;
+}
+
+.nothing{
+  padding:10rpx 0;
+  height:80rpx;
+  line-height:80rpx;
+  font-size:28rpx;
+  color:#666;
+  background:#fafafa;
+  text-align:center
+}
+
+.main-info{
+  padding:10rpx 0 100rpx;
+}
+.like-list,.collect-list,.comment-list{
+  padding:10rpx 0 10rpx 30rpx;
+}
+.imgText{
+  padding:10rpx 0;
+}
+.imgText image{
+  width:80rpx;
+  height:80rpx;
+  border-radius:50%;
+  margin-right:20rpx;
+}
+.imgText view{
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+.imgText view{
+  flex:1;
+  display: flex;
+  align-items: center;
+  padding-bottom:10rpx;
+  border-bottom:1px solid #eee;
+}
+
+input{
+  padding:10rpx;
+  position: fixed;
+  background:#fff;
+  bottom:100rpx;left:0;
+  margin-bottom:30rpx;
+  width:92%;
+  margin-left:4%;
+  border-radius:6rpx;
+  border:1px solid #a1a1a1;
+}

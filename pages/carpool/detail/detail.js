@@ -41,7 +41,7 @@ Page({
   },
   goedit(){
     var that = this;
-    wx.navigateTo({
+    wx.redirectTo({
         url: '/pages/carpool/issue/issue?id='+this.data.id,
       })
   },

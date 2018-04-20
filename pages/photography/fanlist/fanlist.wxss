@@ -1,0 +1,41 @@
+.nothing{
+  padding:16rpx 0;
+  height:80rpx;
+  line-height:80rpx;
+  font-size:28rpx;
+  color:#666;
+  text-align:center
+}
+
+.fan-box{
+  border-top:1px solid #666;
+  padding:8rpx 0 100rpx;
+}
+.fan-item{
+  padding-top:30rpx;
+  position: relative;
+}
+.fan-item icon{
+  position:absolute;
+  right:46rpx;
+  top:38rpx;
+}
+.fan-item image{
+  width:80rpx;height:80rpx;
+  border-radius:50%;
+  margin:0 30rpx;
+}
+.nickname{
+  color:#4b4b4b;
+  font-size:32rpx;
+  line-height:40rpx;
+}
+.desc{
+  color:#aeaeae;
+  font-size:24rpx;
+  line-height:60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:480rpx;
+}

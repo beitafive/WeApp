@@ -1,17 +1,22 @@
 <template name="N">
-  <view class="bottoms">
-    <view data-route="index" class="nav left" bindtap="navTap">
+   <view class="bottoms">
+    <!-- <view data-route="index" class="nav left" bindtap="navTap">
       <icon class="iconfont icon-shouye icon"></icon>
       <text>拼车</text>
-    </view>
-    <view data-route="issue" class="nav .middle"bindtap="navTap"> 
+    </view> -->
+    <!-- <view data-route="issue" class="nav .middle"bindtap="navTap"> 
       <image src="../../../images/carpool/zp-icon3.png" class="bgi"></image>
       <icon class="iconfont icon-plus-add"></icon>
       <text>发布</text>
-    </view>
-    <view data-route="mylist" class="nav right" bindtap="navTap">
+    </view> -->
+    <!-- <view data-route="mylist" class="nav right" bindtap="navTap">
       <icon class="iconfont icon-ren111 icon"></icon>
       <text>我的</text>
+    </view> -->
+    <view wx:for="{{navList}}" wx:key="{{index}}"  class="nav" bindtap="navTap" data-route="{{item.route}}">
+      <text> </text>
+      <image src="{{item.img}}"></image>
+      <text>{{item.title}}</text>
     </view>
-  </view>
+  </view> 
 </template>

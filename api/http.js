@@ -15,7 +15,7 @@ function returnReq(url, data, cb, type = "post"){
       if(res.data.code == '403'){
         wx.removeStorageSync('head')
         wx.redirectTo({
-          url:'/pages/carpool/index/index'
+          url:'/pages/home/home'
         })
       }
       return typeof cb == 'function' && cb(res.data)

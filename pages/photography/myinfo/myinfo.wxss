@@ -1,0 +1,78 @@
+
+.head{
+  border-top:40rpx solid #F0F0F0;
+  border-bottom:40rpx solid #F0F0F0;
+  padding: 0 30rpx;
+  height:140rpx;
+  align-items:center;
+  justify-content:space-between;
+}
+.head image{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+}
+.head view{
+  font-size:32rpx;
+  line-height:52rpx;
+  color:#adadad;
+}
+.my-infos{
+  height:80rpx;
+  border-bottom:1px solid #eee;
+  margin-left:30rpx;
+  align-items:center;
+  color:#adadad;
+  justify-content:space-between;
+  font-size:32rpx;
+}
+.my-infos text{
+  color:#000;
+}
+.my-infos view{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.my-info-cover{
+  background:#ECEBF1;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;left:0;
+}
+.my-info-cover>view{
+  padding-top:50rpx;
+}
+.my-info-cover textarea{
+  width:100%;
+  height:200rpx;
+  background:#fff;
+  font-size:32rpx;
+}
+.my-info-cover input{
+  background:#fff;
+  font-size:32rpx;
+  padding:30rpx 0;
+}
+.my-info-cont{
+  height:100rpx;
+  align-items: center;
+  justify-content:center;
+}
+.changeNum{
+  position:absolute;
+  right:14rpx;top:210rpx;
+  font-size:28rpx;
+  color:#bcbcbc;
+}
+.my-info-cont view{
+  width:100rpx;
+  height:50rpx;
+  font-size:28rpx;
+  text-align: center;
+  line-height:50rpx;
+  border-radius:6rpx;
+  background:#50BFFF;
+  color:#fff;
+}

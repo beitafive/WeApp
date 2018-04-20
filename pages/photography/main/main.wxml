@@ -1,0 +1,83 @@
+<!-- 引入加载中动画  -->
+<import src="../../../components/loading/loading.wxml" />
+
+<view class="main">
+  <view class="user-info flexdis">
+    <image src="{{info.userLogo}}" bindtap="goPhoto"></image>
+    <view class="flexdis">
+      <text bindtap="goPhoto">{{info.userNickName}}</text>
+      <text>{{info.createTime}}</text>
+    </view>
+  </view>
+  <view class="info-title">{{info.title}}</view>
+  <view class="info-img">
+    <block wx:for="{{info.imgs}}" wx:for-item="infos" wx:key="{{index}}">
+      <image src='{{infos}}' style="width:{{info.images.length==1?'100%':'224rpx'}};height:{{info.images.length==1?'aotu':'224rpx'}}" data-arr="{{info.images}}" data-item="{{info.images[index]}}" bindtap="showImg"></image>
+    </block>
+  </view>
+</view>
+<view class="scroll-nav flexdis">
+  <view style="color:{{select==0?'#000':'#979797'}};font-weight:{{select==0?'bolder':'normal'}};margin-right:18rpx;" bindtap="changeList" data-index="0">
+    收藏 {{info.collectNum}}
+    <text wx:if="{{select == 0 }}"></text>
+  </view>
+  <view style="color:{{select==1?'#000':'#979797'}};font-weight:{{select==1?'bolder':'normal'}}" bindtap="changeList" data-index="1">
+    评论 {{info.commentNum}}
+    <text wx:if="{{select == 1 }}"></text>
+  </view>
+  <view style="flex:1"></view>
+  <view style="color:{{select==2?'#000':'#979797'}};font-weight:{{select==2?'bolder':'normal'}}" bindtap="changeList" data-index="2">
+    赞 {{info.likeNum}}
+    <text wx:if="{{select == 2 }}" style="left:2rpx"></text>
+  </view>
+</view>
+<input focus="{{inputFocus}}" confirm-type="send"  wx:if="{{inputFocus}}" bindconfirm="confirmComment" bindblur="hideInput"></input>
+<view class="main-info">
+  <view class="collect-list" wx:if="{{select == 0 }}">
+    <view wx:for="{{collectList}}" wx:key="{{index}}" class="flexdis imgText">
+      <image src="{{item.userLogo}}"></image>
+      <view>
+        {{item.userNickName}}
+      </view>
+    </view>
+  </view>
+  <view class="comment-list" wx:if="{{select == 1 }}">
+    <view wx:for="{{commentList}}" wx:key="{{index}}" class="flexdis imgText">
+      <image src="{{item.userLogo}}"></image>
+      <view  style="display:block">
+        <text style="color:#636363;font-size:28rpx;">{{item.userNickName}}\n</text>
+        <text style="color:#3F3F3F;font-size:32rpx;">{{item.content}}\n</text>
+        <text style="color:#A0A0A0;font-size:24rpx;">{{item.createTime}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="like-list" wx:if="{{select == 2 }}">
+    <view wx:for="{{likeList}}" wx:key="{{index}}" class="flexdis imgText">
+      <image src="{{item.userLogo}}"></image>
+      <view>
+        {{item.userNickName}}
+      </view>
+    </view>
+  </view>
+  <template is="L" wx:if="{{loading}}"></template>
+  <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+</view>
+
+
+
+
+<!-- 底部导航  -->
+<view class="info-nav flexdis" wx:if="{{!inputFocus}}">
+  <view bindtap="collect">
+    <icon class="iconfont icon-shoucang" style="color:{{info.isCollect==0?'':'#FF9934'}}"></icon>
+    收 藏
+  </view>
+  <view style="border-right:1px solid #eee;border-left:1px solid #eee;" bindtap="showInput">
+    <icon class="iconfont icon-pinglun"></icon>
+    评 论
+  </view>
+  <view bindtap="like">
+    <icon class="iconfont icon-zan" style="color:{{info.isLike==0?'':'#FF9934'}}"></icon>
+    赞
+  </view>
+</view>

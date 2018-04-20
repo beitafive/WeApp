@@ -1,0 +1,24 @@
+<!-- 引入公共底部  -->
+<import src="../../../components/nav/nav.wxml" />
+<!-- 引入加载中动画  -->
+<import src="../../../components/loading/loading.wxml" />
+
+<view class="fan-box">
+  <view class="fan-item flexdis" wx:for="{{list}}" wx:key="{{index}}" data-item="{{item}}" bindtap="goPhoto">
+    <image src="{{item.userLogo}}"></image>
+    <view style="flex:1;border-bottom:1px solid #eee;height:100rpx">
+      <view class="nickname">{{item.userNickName}}</view>
+      <view class="desc">{{item.userIntroductionPhotography}}</view>
+    </view>
+    <icon class="iconfont icon-iconfonttaguanzhuwo" wx:if="{{item.eachOther==3}}" data-index="{{index}}" data-item="{{item}}" catchtap="eachThis"></icon>
+    <icon class="iconfont icon-iconfonthuxiangguanzhu" wx:if="{{item.eachOther==1}}" data-index="{{index}}" data-item="{{item}}"  catchtap="eachThis"></icon>
+    <icon class="iconfont icon-yiguanzhu" wx:if="{{item.eachOther==2}}" data-index="{{index}}" data-item="{{item}}"  catchtap="eachThis"></icon>
+    <icon class="iconfont icon-guanzhu" wx:if="{{item.eachOther==0}}" data-index="{{index}}" data-item="{{item}}"  catchtap="eachThis"></icon>
+  </view>
+  <template is="L" wx:if="{{loading}}"></template>
+  <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+</view>
+
+
+
+<template is="N" data="{{navList}}"></template>

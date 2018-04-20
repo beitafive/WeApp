@@ -67,10 +67,45 @@ function getOneHour(itemTime){
     return Math.ceil(step/60) + '分钟前发布'
   }
 }
+//判断 日期 是不是低于24小时
+function getOneDay(itemTime) {
+  itemTime = itemTime.replace(/-/g, '/')
+  var nowTime = Date.parse(new Date()) / 1000;
+  var createTime = Date.parse(new Date(itemTime)) / 1000;
+  var step = nowTime - createTime;
+  if (step >= 86400 && step <= 172800) {
+    return '昨天'
+  } 
+  if (step <= 86400 && step > 3600) {
+    return Math.ceil(step / 3600) + '小时前'
+  }
+  if (step <= 3600 && step > 60){
+    return Math.ceil(step / 60) + '分钟前'
+  }
+  if (step < 60 && step > 0 ){
+    return step + '秒前'
+  }
+  if(step < 0){
+    return '1秒前'
+  }
+  return itemTime;
+}
+
+//返回服务器图片地址
+function getImgUrl(url){
+  if(!url.startsWith('https')){
+    return 'http://img.zhudou.cn/guli/user' + url;
+  }else{
+    let index = url.lastIndexOf('0');
+    return url.slice(0,index) + '132';
+  }
+}
 
 module.exports = {
   getunit: getunit,
   timeLose: timeLose,
   getWeek: getWeek,
-  getOneHour: getOneHour
+  getOneHour: getOneHour,
+  getOneDay:getOneDay,
+  getImgUrl:getImgUrl
 }

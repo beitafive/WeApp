@@ -1,0 +1,51 @@
+<!-- 引入公共底部  -->
+<import src="../../../components/nav/nav.wxml" />
+<!-- 引入加载中动画  -->
+<import src="../../../components/loading/loading.wxml" />
+
+<view class="my-info-top">
+  <view class="my-top flexdis">
+    <image src="{{info.logo}}" bindtap="gomyinfo"></image>
+    <view class="my-info">
+      <view bindtap="gomyinfo">{{info.nickName}}</view>
+      <view bindtap="gomyinfo">{{info.introductionPhotography}}</view>
+    </view>
+  </view>
+  <view class="watch" wx:if="{{ismine==0}}" style="background:{{info.isFollow==0?'#FF9934':'#fff'}};color:{{info.isFollow==0?'#fff':'#FF9934'}};" bindtap="watchThis">{{info.isFollow==0?'关注':'已关注'}}</view>
+  <view class="fans-num flexdis">
+    <view style="flex:4"></view>
+    <navigator url="/pages/photography/fanlist/fanlist?ismine={{ismine}}&type=2&id={{id}}" style="flex:1;text-align:left;border-right:1px solid #666">{{info.followNum}}关注</navigator>
+    <navigator url="/pages/photography/fanlist/fanlist?ismine={{ismine}}&type=1&id={{id}}" style="flex:1">{{info.followedNum}}粉丝</navigator>
+  </view>
+</view>
+
+<view class="photo">
+    <view wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goDetail">
+      <view class="item-title">{{item.title}}</view>
+      <view class="item-time">{{item.createTime}}</view>
+      <view class="item-img">
+        <block wx:for="{{item.imgs}}" wx:for-item="items" wx:key="{{index}}">
+          <image src='{{items}}' data-arr="{{item.images}}" data-item="{{item.images[index]}}" catchtap="showImg"></image>
+        </block>
+      </view>
+      <view class="item-cont flexdis">
+        <view data-item="{{item}}" data-index="{{index}}" catchtap="collect">
+          <icon class="iconfont icon-shoucang" style="color:{{item.isCollect==0?'':'#FF9934'}}"></icon>
+          {{item.collectNum}}
+        </view>
+        <view>
+          <icon class="iconfont icon-pinglun"></icon>
+          评论
+        </view>
+        <view data-item="{{item}}" data-index="{{index}}" catchtap="like">
+          <icon class="iconfont icon-zan" style="color:{{item.isLike==0?'':'#FF9934'}}"></icon>
+          {{item.likeNum}}
+        </view>
+      </view>
+    </view>
+    <template is="L" wx:if="{{loading}}"></template>
+    <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+  </view>
+
+
+<template is="N" data="{{navList}}"></template>

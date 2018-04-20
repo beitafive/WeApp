@@ -1,0 +1,23 @@
+
+<view class="head flexdis" bindtap='changeHead'>
+  <image src="{{info.logos}}"></image>
+  <view>修改头像<icon class="iconfont icon-jiantou" style="float:right"></icon></view>
+</view>
+<view class="my-infos flexdis" bindtap="showCover" data-type="1">
+  <view>昵称：<text>{{info.nickName}}</text></view>
+  <icon class="iconfont icon-jiantou" style="margin-right:30rpx"></icon>
+</view>
+<view class="my-infos flexdis" bindtap="showCover" data-type="2">
+  <view>简介：<text>{{info.introductionPhotography}}</text></view>
+  <icon class="iconfont icon-jiantou" style="margin-right:30rpx"></icon>
+</view>
+<view class="my-info-cover" wx:if="{{cover}}">
+  <view style="padding:50rpx 30rpx 0;background:#fff">
+    <textarea bindblur="bindTextAreaBlur" maxlength="50" value="{{info.introductionPhotography}}" bindinput="textInput" wx:if="{{type==2}}" /> 
+    <view class="changeNum" wx:if="{{type==2}}">还能输入{{num}}字</view>
+    <input maxlength="15" value="{{info.nickName}}" bindinput="nickInput" wx:if="{{type==1}}"></input>
+  </view>
+  <view class="flexdis my-info-cont">
+    <view bindtap="submitForm">完成</view>
+  </view>
+</view>

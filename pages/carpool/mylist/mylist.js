@@ -8,7 +8,8 @@ Page({
     loading:false,
     nothing:false,
     height: '600px',
-    route:''
+    route:'',
+    navList: [{ title: '拼车', img: 'http://img.zhudou.cn/guli/carpool/icon/menu/bottom/carpool-00.png', route: '/pages/carpool/index/index' }, { title: '发布', img: 'http://img.zhudou.cn/guli/carpool/icon/menu/bottom/publish-00.png', route: '/pages/carpool/issue/issue' }, { title: '我的', img: 'http://img.zhudou.cn/guli/carpool/icon/menu/bottom/mine-01.png', route: '/pages/carpool/mylist/mylist' }, { title: '主页', img: 'http://img.zhudou.cn/guli/carpool/icon/menu/bottom/zhuye-00.png', route: '/pages/home/home' }]
   },
   onShareAppMessage: function () {
     return {
@@ -40,12 +41,18 @@ Page({
     })
   },
   navTap(e) {
-    if (this.data.route.includes(e.currentTarget.dataset.route)) {
+    if (e.currentTarget.dataset.route.includes(this.data.route)) {
       return;
     }
-    wx.navigateTo({
-      url: '/pages/carpool/' + e.currentTarget.dataset.route + '/' + e.currentTarget.dataset.route
-    })
+    if (e.currentTarget.dataset.route.includes('issue')) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.route
+      })
+    } else {
+      wx.redirectTo({
+        url: e.currentTarget.dataset.route
+      })
+    }
   },
   //上拉加载
   loadMore() {

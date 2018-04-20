@@ -1,0 +1,97 @@
+
+.my-info-top{
+  position: relative;
+  background:#FF9934;
+  padding:50rpx 20rpx 20rpx 30rpx;
+}
+.watch{
+  position:absolute;
+  width:90rpx;height:40rpx;
+  border:1px solid #fff;
+  border-radius:6rpx;
+  top:58rpx;right:30rpx;
+  font-size:28rpx;
+  text-align: center;
+  line-height:40rpx;
+}
+.fans-num{
+  color:#676564;
+  font-weight:bold;
+  font-size:28rpx;
+}
+.fans-num navigator{
+  margin-top:30rpx;
+  letter-spacing:4rpx;
+  text-align: right;
+}
+.my-top image{
+  width:80rpx;
+  height:80rpx;
+  border-radius:50%;
+}
+.my-info{
+  flex:1;
+  margin-left:20rpx;
+}
+.my-info view:nth-of-type(1){
+  font-size:32rpx;
+  font-weight:bolder;
+}
+.my-info view:nth-of-type(2){
+  font-size:24rpx;
+  color:#fff;
+  line-height:30rpx;
+  padding-top:14rpx;
+}
+.item-title{
+  color:#5A5A5A;
+  font-size:32rpx;
+  padding-top:30rpx;
+}
+.item-img{
+  padding:16rpx 0 10rpx;
+  border-bottom:1px solid #eee;
+}
+.item-img image{
+  margin:4rpx;
+  width:224rpx;
+  height:224rpx;
+}
+.item-time{
+  color:#ccc;
+  font-size:28rpx;
+  margin-top:8rpx;
+}
+.item-cont{
+  padding:10rpx 0;
+  justify-content: space-around;
+  font-size:26rpx;
+  align-items:center;
+}
+.item-cont icon{
+  font-size:34rpx;
+  margin-top:-4rpx;
+  margin-right:10rpx;
+}
+.item-cont view,.item-cont navigator{
+  display: flex;
+  align-items:center;
+}
+.nothing{
+  padding:16rpx 0;
+  height:80rpx;
+  line-height:80rpx;
+  font-size:28rpx;
+  color:#666;
+  background:#fafafa;
+  text-align:center
+}
+.photo{
+  background:#eee;
+  padding:8rpx 0 100rpx;
+}
+.photo>view{
+  padding:0 20rpx;
+  margin-bottom:20rpx;
+  background:#fff;
+}

@@ -1,0 +1,46 @@
+<!-- 引入公共底部  -->
+<import src="../../../components/nav/nav.wxml" />
+<!-- 引入加载中动画  -->
+<import src="../../../components/loading/loading.wxml" />
+<view bind:touchstart='startM'  bind:touchend='endM'>
+  <view class="type-nav flexdis" style="position:{{navPos?'absolute':'fixed'}}">
+    <view wx:for="{{typeArr}}" wx:key="{{index}}" data-index="{{index}}" bindtap="changeType">
+      {{item.name}}
+      <text wx:if="{{item.index == typeIndex }}"></text>
+    </view>
+  </view>
+  <view class="photo">
+    <view wx:for="{{list}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap="goDetail">
+      <view class="user-info flexdis">
+        <image src="{{item.userLogo}}" data-id="{{item.userId}}" data-ismine="{{item.isMine}}" catchtap="goPhoto"></image>
+        <view class="flexdis">
+          <text catchtap="goPhoto" data-id="{{item.userId}}" data-ismine="{{item.isMine}}">{{item.userNickName}}</text>
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class="item-title">{{item.title}}</view>
+      <view class="item-img">
+        <block wx:for="{{item.imgs}}" wx:for-item="items" wx:key="{{index}}">
+          <image src='{{items}}' data-arr="{{item.images}}" data-item="{{item.images[index]}}" catchtap="showImg"></image>
+        </block>
+      </view>
+      <view class="item-cont flexdis">
+        <view data-item="{{item}}" data-index="{{index}}" catchtap="collect">
+          <icon class="iconfont icon-shoucang" style="color:{{item.isCollect==0?'':'#FF9934'}}"></icon>
+          {{item.collectNum}}
+        </view>
+        <view>
+          <icon class="iconfont icon-pinglun"></icon>
+          评论
+        </view>
+        <view data-item="{{item}}" data-index="{{index}}" catchtap="like">
+          <icon class="iconfont icon-zan" style="color:{{item.isLike==0?'':'#FF9934'}}"></icon>
+          {{item.likeNum}}
+        </view>
+      </view>
+    </view>
+    <template is="L" wx:if="{{loading}}"></template>
+    <view wx:if="{{nothing}}" class="nothing"> 没有更多信息了 </view>
+  </view>
+</view>
+<template is="N" data="{{navList}}"></template>

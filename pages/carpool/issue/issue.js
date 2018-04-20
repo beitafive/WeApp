@@ -58,6 +58,9 @@ Page({
       height: app.globalData.height + 'px'
     })
   },
+  onShow: function(){
+    wx.hideTabBar()
+  },
   showCover() {
     wx.pageScrollTo({
       scrollTop: 0,
@@ -173,7 +176,7 @@ Page({
           duration: 1000
         })
         setTimeout(()=>{
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/carpool/index/index'
           })
         },1000)

@@ -1,0 +1,23 @@
+<view class="home">
+  <image src="http://img.zhudou.cn/guli/i1/home/background/bg-top.jpg" class="banner"></image>
+  <view class="navi">
+    <navigator open-type='reLaunch' url="/pages/carpool/index/index" class="navi-item">
+      <image src="../../images/photography/carpool.png" style="width:100rpx;height:80rpx;"></image>
+      <text>同城拼车</text>
+      <text> </text>
+    </navigator>
+    <navigator open-type='reLaunch' url="/pages/photography/photo/photo"  class="navi-item">
+      <image src="../../images/photography/photography.png" style="width:54rpx;height:54rpx;padding:13rpx 0"></image>
+      <text>摄影圈</text>
+      <text> </text>
+    </navigator>
+    <view  class="navi-item">
+      即将开通...
+    </view>
+  </view>
+</view>
+<view class="navs flexdis">
+  <navigator>客服咨询</navigator>
+  <navigator>个人中心</navigator>
+  <navigator>商务合作</navigator>
+</view>
